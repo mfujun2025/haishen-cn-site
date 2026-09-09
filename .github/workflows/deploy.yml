@@ -27,7 +27,7 @@ jobs:
           python-version: "3.12"
 
       - name: Build site
-        run: python site/build.py
+        run: python build.py
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -37,7 +37,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site/output
+          path: output
 
   deploy:
     needs: build
