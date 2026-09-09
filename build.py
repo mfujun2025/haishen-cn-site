@@ -6,6 +6,7 @@
 """
 import os
 import re
+import shutil
 import html as htmllib
 from datetime import datetime
 
@@ -301,6 +302,15 @@ body{font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;color:var(
         f.write("\n".join(sm))
     with open(os.path.join(OUTPUT, "robots.txt"), "w", encoding="utf-8") as f:
         f.write("User-agent: *\nAllow: /\nSitemap: %s/sitemap.xml\n" % SITE["url"])
+
+    # 静态文件：根目录的搜索引擎验证文件 / CNAME 直接拷贝进站点；static/ 目录整体拷贝（如有）
+    for fname in ("BingSiteAuth.xml", "CNAME"):
+        src = os.path.join(ROOT, fname)
+        if os.path.isfile(src):
+            shutil.copyfile(src, os.path.join(OUTPUT, fname))
+    static_dir = os.path.join(ROOT, "static")
+    if os.path.isdir(static_dir):
+        shutil.copytree(static_dir, OUTPUT, dirs_exist_ok=True)
 
     print("OK  文章 %d 篇  页面 %d 个" % (len(arts), len(arts) + 6))
 
