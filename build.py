@@ -138,7 +138,7 @@ def page_shell(title, desc, body, canonical="", depth=0):
 <footer class="site-footer">
   <div class="wrap">
     <p>海参.cn —— 海参知识科普网站。本站内容为食品科普与经验分享，不构成医疗建议；特殊人群请遵医嘱。</p>
-    <p><a href="{p}disclaimer.html">免责声明</a> · <a href="{p}about.html">关于本站</a></p>
+    <p><a href="{p}disclaimer.html">免责声明</a> · <a href="{p}shangjia.html">商家导航</a> · <a href="{p}about.html">关于本站</a></p>
     <p class="copy">© {datetime.now().year} 海参.cn</p>
   </div>
 </footer>
@@ -291,7 +291,7 @@ body{font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;color:var(
         f.write("")
 
     # sitemap + robots
-    urls = ["/index.html", "/baike.html", "/xuangou.html", "/paofa.html", "/about.html", "/disclaimer.html"]
+    urls = ["/index.html", "/baike.html", "/xuangou.html", "/paofa.html", "/shangjia.html", "/about.html", "/disclaimer.html"]
     urls += ["articles/%s.html" % a["slug"] for a in arts]
     today = datetime.now().strftime("%Y-%m-%d")
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
@@ -312,7 +312,7 @@ body{font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;color:var(
     if os.path.isdir(static_dir):
         shutil.copytree(static_dir, OUTPUT, dirs_exist_ok=True)
 
-    print("OK  文章 %d 篇  页面 %d 个" % (len(arts), len(arts) + 6))
+    print("OK  文章 %d 篇  页面 %d 个" % (len(arts), len(arts) + 7))
 
 if __name__ == "__main__":
     build()
