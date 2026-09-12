@@ -107,6 +107,13 @@ def md_to_html(md):
 def esc(s):
     return htmllib.escape(s or "")
 
+def canon_url(path=""):
+    """规范化绝对 URL：确保域名与路径之间只有一个斜杠；根路径输出 https://域名/ 形式"""
+    base = SITE["url"].rstrip("/")
+    if path in ("", "/"):
+        return base + "/"
+    return base + "/" + path.strip("/")
+
 def page_shell(title, desc, body, canonical="", depth=0):
     p = "" if depth == 0 else "../"   # 相对路径前缀
     return f"""<!DOCTYPE html>
@@ -116,7 +123,7 @@ def page_shell(title, desc, body, canonical="", depth=0):
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(desc)}"/>
-<link rel="canonical" href="{SITE['url']}/{canonical}"/>
+<link rel="canonical" href="{canon_url(canonical)}"/>
 <link rel="stylesheet" href="{p}css/style.css"/>
 </head>
 <body>
@@ -204,7 +211,7 @@ def build():
 </section>
 {"".join(sections)}"""
     with open(os.path.join(OUTPUT, "index.html"), "w", encoding="utf-8") as f:
-        f.write(page_shell(SITE["full_name"] + " —— " + SITE["slogan"], SITE["desc"], home_body, "index.html"))
+        f.write(page_shell(SITE["full_name"] + " —— " + SITE["slogan"], SITE["desc"], home_body, "/"))
 
     # 栏目页（depth=0）
     for ck, cat in CATS.items():
@@ -291,17 +298,18 @@ body{font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;color:var(
         f.write("")
 
     # sitemap + robots
-    urls = ["/index.html", "/baike.html", "/xuangou.html", "/paofa.html", "/shangjia.html", "/about.html", "/disclaimer.html"]
+    # 注意：首页用根路径 "/"（而不是 /index.html），与页面 canonical 保持一致，避免重复信号
+    urls = ["/", "/baike.html", "/xuangou.html", "/paofa.html", "/shangjia.html", "/about.html", "/disclaimer.html"]
     urls += ["articles/%s.html" % a["slug"] for a in arts]
     today = datetime.now().strftime("%Y-%m-%d")
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
-        sm.append("<url><loc>%s/%s</loc><lastmod>%s</lastmod></url>" % (SITE["url"], u, today))
+        sm.append("<url><loc>%s</loc><lastmod>%s</lastmod></url>" % (canon_url(u), today))
     sm.append("</urlset>")
     with open(os.path.join(OUTPUT, "sitemap.xml"), "w", encoding="utf-8") as f:
         f.write("\n".join(sm))
     with open(os.path.join(OUTPUT, "robots.txt"), "w", encoding="utf-8") as f:
-        f.write("User-agent: *\nAllow: /\nSitemap: %s/sitemap.xml\n" % SITE["url"])
+        f.write("User-agent: *\nAllow: /\nSitemap: %s\n" % canon_url("sitemap.xml"))
 
     # 静态文件：根目录的搜索引擎验证文件 / CNAME 直接拷贝进站点；static/ 目录整体拷贝（如有）
     for fname in ("BingSiteAuth.xml", "CNAME"):
