@@ -290,7 +290,7 @@ body{font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;color:var(
         f.write("")
 
     # sitemap + robots
-    urls = ["/index.html", "/baike.html", "/xuangou.html", "/paofa.html", "/about.html", "/disclaimer.html"]
+    urls = ["index.html", "baike.html", "xuangou.html", "paofa.html", "about.html", "disclaimer.html"]
     urls += ["articles/%s.html" % a["slug"] for a in arts]
     today = datetime.now().strftime("%Y-%m-%d")
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
