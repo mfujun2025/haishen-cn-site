@@ -8,6 +8,10 @@ body{font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;color:var(
 .logo-dot{color:var(--brand)}
 .nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-size:15px}
 .nav a:hover{color:var(--brand)}
+/* 汉堡按钮：默认隐藏，仅移动端显示 */
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;
+  border:1px solid var(--line);background:#fff;border-radius:8px;cursor:pointer;padding:0;flex-shrink:0}
+.hamburger span{display:block;width:20px;height:2px;background:var(--ink);margin:0 auto;border-radius:2px;transition:.2s}
 .hero{padding:56px 0 40px;text-align:center}
 .hero h1{font-size:34px;color:var(--brand)}
 .hero p{color:var(--muted);margin-top:12px;max-width:640px;margin-left:auto;margin-right:auto}
@@ -55,4 +59,4 @@ body{font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;color:var(
 .site-footer{border-top:1px solid var(--line);background:var(--soft);margin-top:48px;padding:28px 0;font-size:13px;color:var(--muted)}
 .site-footer a{color:var(--brand);text-decoration:none}
 .copy{margin-top:8px}
-@media(max-width:720px){.grid{grid-template-columns:1fr}.nav{display:none}.hero h1{font-size:26px}}
+@media(max-width:720px){.grid{grid-template-columns:1fr}.hero h1{font-size:26px}.hamburger{display:flex}.nav{position:absolute;top:60px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;padding:12px 20px;display:none;box-shadow:0 6px 14px rgba(0,0,0,.06)}.nav.open{display:flex}.nav a{margin-left:0;padding:10px 0;font-size:16px;width:100%;border-bottom:1px solid var(--line)}.nav a:last-child{border-bottom:none}.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}}
