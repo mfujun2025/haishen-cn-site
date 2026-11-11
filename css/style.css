@@ -108,3 +108,4 @@ body{font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;color:var(
 background:var(--brand-soft);color:#0b5344;font-size:14.5px;line-height:1.8}
 .merge-note a{color:inherit;font-weight:600;text-decoration:underline}
 @media(max-width:720px){.merge-note{font-size:14px;padding:10px 13px}}
+.disclaimer-inline{margin:22px 0 0;padding-top:14px;border-top:1px dashed #dcdfe3;font-size:13.5px;line-height:1.75;color:#6b7280}
