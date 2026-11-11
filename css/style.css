@@ -92,3 +92,13 @@ body{font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;color:var(
 @media(max-width:720px){
   .post-body table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap}
 }
+
+/* 404 页 */
+.nf{padding:54px 0 10px}
+.nf-code{margin:0;font-size:66px;line-height:1;font-weight:700;color:var(--brand);opacity:.16;letter-spacing:2px}
+.nf h1{margin:6px 0 10px;font-size:26px;color:var(--ink)}
+.nf-desc{margin:0;color:var(--muted);line-height:1.9;max-width:620px}
+.nf-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.nf-links a{display:inline-block;padding:9px 16px;border:1px solid var(--line);border-radius:999px;color:var(--brand);background:var(--soft);text-decoration:none;font-size:14.5px}
+.nf-links a:hover{border-color:var(--brand);background:var(--brand-soft)}
+@media(max-width:720px){.nf{padding:36px 0 6px}.nf-code{font-size:52px}.nf h1{font-size:22px}}
