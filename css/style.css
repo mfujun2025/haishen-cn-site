@@ -60,3 +60,10 @@ body{font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;color:var(
 .site-footer a{color:var(--brand);text-decoration:none}
 .copy{margin-top:8px}
 @media(max-width:720px){.grid{grid-template-columns:1fr}.hero h1{font-size:26px}.hamburger{display:flex}.nav{position:absolute;top:60px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;padding:12px 20px;display:none;box-shadow:0 6px 14px rgba(0,0,0,.06)}.nav.open{display:flex}.nav a{margin-left:0;padding:10px 0;font-size:16px;width:100%;border-bottom:1px solid var(--line)}.nav a:last-child{border-bottom:none}.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}}
+
+/* FAQ 区块（问答结构化） */
+.faq{margin:6px 0 22px}
+.faq-item{border-left:3px solid var(--brand);padding:2px 0 2px 14px;margin:0 0 18px}
+.faq-item h3{font-size:17px;line-height:1.6;margin:0 0 6px;font-weight:600;color:var(--ink)}
+.faq-item p{margin:0;color:var(--muted);line-height:1.85;font-size:15.5px}
+@media(max-width:720px){.faq-item h3{font-size:16px}.faq-item p{font-size:15px}}
