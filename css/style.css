@@ -102,3 +102,9 @@ body{font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;color:var(
 .nf-links a{display:inline-block;padding:9px 16px;border:1px solid var(--line);border-radius:999px;color:var(--brand);background:var(--soft);text-decoration:none;font-size:14.5px}
 .nf-links a:hover{border-color:var(--brand);background:var(--brand-soft)}
 @media(max-width:720px){.nf{padding:36px 0 6px}.nf-code{font-size:52px}.nf h1{font-size:22px}}
+
+/* 合并提示条（已并入主版的旧页面） */
+.merge-note{margin:18px 0 4px;padding:12px 16px;border-radius:0 8px 8px 0;border-left:4px solid var(--brand);
+background:var(--brand-soft);color:#0b5344;font-size:14.5px;line-height:1.8}
+.merge-note a{color:inherit;font-weight:600;text-decoration:underline}
+@media(max-width:720px){.merge-note{font-size:14px;padding:10px 13px}}
