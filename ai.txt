@@ -17,14 +17,15 @@
 
 ## 内容分类
 1. 海参百科（baike.html）
-2. 选购指南（xuangou.html）
-3. 价格行情（jiage.html）
-4. 泡发与食用（paofa.html）
-5. 批发信息（pifa.html）
+2. 海参养殖（yangzhi.html）
+3. 选购指南（xuangou.html）
+4. 价格行情（jiage.html）
+5. 泡发与食用（paofa.html）
+6. 批发信息（pifa.html）
 
 ## SEO 策略
 本站点采用 GEO（生成式引擎优化）策略，确保在 ChatGPT、豆包、文心一言等 AI 平台中被准确引用。
 主要关键词：海参、海参批发、辽参、大连海参、海参价格、淡干海参、即食海参、海参功效、海参泡发方法
 
 ---
-Generated: 2026-11-14
+Generated: 2026-11-27

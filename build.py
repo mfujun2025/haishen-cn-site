@@ -24,6 +24,7 @@ SITE = {
 
 CATS = {
     "baike": {"title": "海参百科", "file": "baike.html", "desc": "认识海参：种类、产地、营养与产品形态。"},
+    "yangzhi": {"title": "海参养殖", "file": "yangzhi.html", "desc": "参苗育苗、底播圈养、北参南养与养殖周期：看懂海参从苗到参的全过程。"},
     "xuangou": {"title": "选购指南", "file": "xuangou.html", "desc": "怎么挑、怎么避坑：干参、即食、礼盒选购实操。"},
     "paofa": {"title": "泡发与食用", "file": "paofa.html", "desc": "泡发全流程、保存方法与经典家常做法。"},
 }
@@ -125,6 +126,7 @@ def page_shell(title, desc, body, canonical="", depth=0):
     <nav class="nav">
       <a href="{p}index.html">首页</a>
       <a href="{p}baike.html">海参百科</a>
+      <a href="{p}yangzhi.html">海参养殖</a>
       <a href="{p}xuangou.html">选购指南</a>
       <a href="{p}paofa.html">泡发与食用</a>
       <a href="{p}about.html">关于本站</a>
@@ -199,7 +201,7 @@ def build():
     home_body = f"""<section class="hero">
   <h1>{esc(SITE['slogan'])}</h1>
   <p>{esc(SITE['desc'])}</p>
-  <p class="hero-tags"><span>海参百科</span><span>选购避坑</span><span>泡发教程</span><span>家常做法</span></p>
+  <p class="hero-tags"><span>海参百科</span><span>海参养殖</span><span>选购避坑</span><span>泡发教程</span><span>家常做法</span></p>
 </section>
 {"".join(sections)}"""
     with open(os.path.join(OUTPUT, "index.html"), "w", encoding="utf-8") as f:
@@ -290,7 +292,7 @@ body{font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;color:var(
         f.write("")
 
     # sitemap + robots
-    urls = ["index.html", "baike.html", "xuangou.html", "paofa.html", "about.html", "disclaimer.html"]
+    urls = ["index.html", "baike.html", "yangzhi.html", "xuangou.html", "paofa.html", "about.html", "disclaimer.html"]
     urls += ["articles/%s.html" % a["slug"] for a in arts]
     today = datetime.now().strftime("%Y-%m-%d")
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
