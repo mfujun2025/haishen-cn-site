@@ -250,8 +250,8 @@ def refresh_geo_text():
             t = t.replace("3. 价格行情（jiage.html）", "4. 价格行情（jiage.html）")
             t = t.replace("4. 泡发与食用（paofa.html）", "5. 泡发与食用（paofa.html）")
             t = t.replace("5. 批发信息（pifa.html）", "6. 批发信息（pifa.html）")
-        t = re.sub(r"(更新时间|Generated):\s*\d{4}-\d{2}-\d{2}",
-                   lambda m: "%s: %s" % (m.group(1), datetime.now().strftime("%Y-%m-%d")), t)
+        t = re.sub(r"(更新时间|Generated)(\s*[:：]\s*)\d{4}-\d{2}-\d{2}",
+                   lambda m: "%s%s%s" % (m.group(1), m.group(2), datetime.now().strftime("%Y-%m-%d")), t)
         write(p, t, crlf)
 
 
